@@ -26,6 +26,7 @@ namespace SocialMediaApp
             InitializeComponent();
             DataContext = user;
             this.user = user;
+            QuoteTextBlock.Text = user.Quote;
             Title = $"{user.FirstName} {user.LastName}'s page";
         }
 
@@ -51,13 +52,45 @@ namespace SocialMediaApp
             }
         }
 
-        private void Post_Click(object sender, RoutedEventArgs e)
+        private void ChangeQuote_Click(object sender, RoutedEventArgs e)
+        {
+            XmlFileManager.UpdateUserQuote(QuoteTextBox.Text, user);
+            QuoteTextBlock.Text = QuoteTextBox.Text;
+
+
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+        }
+
+
+        private void FriendsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+        }
+
+        private void NotificationsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+        }
+
+        private void FeedPost_Click(object sender, RoutedEventArgs e)
         {
 
-            // Get the text from the textPosts TextBox
-            // TODO: Store the text post in a member variable or save it to a file
-            
         }
+
+
 
 
 

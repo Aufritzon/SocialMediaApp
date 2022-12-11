@@ -11,4 +11,15 @@
     <Page Include="App.xaml" />
   </ItemGroup>
 
+
+	<ItemGroup>
+		<Resource Include="Resources\Aviseringar.png" />
+		<Resource Include="Resources\Hem.png" />
+		<Resource Include="Resources\Inställningar.png" />
+		<Resource Include="Resources\KöpSälj.png" />
+		<Resource Include="Resources\LoggaUt.png" />
+		<Resource Include="Resources\Vänner.png" />
+	</ItemGroup>
+
+
 </Project>

@@ -55,6 +55,7 @@ namespace SocialMediaApp
             userElement.SetAttribute("email", user.Email);
             userElement.SetAttribute("firstname", user.FirstName);
             userElement.SetAttribute("lastname", user.LastName);
+            userElement.SetAttribute("quote", user.Quote);
 
 
             doc.DocumentElement.AppendChild(userElement);
@@ -97,6 +98,8 @@ namespace SocialMediaApp
                 XmlAttribute lastNameAttrubute = userElement.Attributes["lastname"];
                 XmlAttribute passwordAttribute = userElement.Attributes["password"];
                 XmlAttribute usernameAttribute = userElement.Attributes["username"];
+                XmlAttribute quoteAttribute = userElement.Attributes["quote"];
+
 
 
                 User user = new User
@@ -105,7 +108,9 @@ namespace SocialMediaApp
                     FirstName = firstNameAttribute.Value,
                     LastName = lastNameAttrubute.Value,
                     Username = usernameAttribute.Value,
-                    Password =passwordAttribute.Value
+                    Password =passwordAttribute.Value,
+                    Quote = quoteAttribute.Value
+
                 };
 
                 users.Add(user);
@@ -129,6 +134,8 @@ namespace SocialMediaApp
                 XmlAttribute lastNameAttrubute = userElement.Attributes["lastname"];
                 XmlAttribute passwordAttribute = userElement.Attributes["password"];
                 XmlAttribute usernameAttribute = userElement.Attributes["username"];
+                XmlAttribute quoteAttribute = userElement.Attributes["quote"];
+
 
                 User user = new User
                 {
@@ -136,13 +143,32 @@ namespace SocialMediaApp
                     FirstName = firstNameAttribute.Value,
                     LastName = lastNameAttrubute.Value,
                     Username = usernameAttribute.Value,
-                    Password = passwordAttribute.Value
+                    Password = passwordAttribute.Value,
+                    Quote = quoteAttribute.Value
                 };
 
                 return user;
             }
 
             return null;
+        }
+
+        public static bool UpdateUserQuote(string quote, User user)
+        {
+            // Load the XML document
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(xmlFilePath);
+
+            // Select the User element with the specified username
+            XmlNode userNode = xmlDoc.SelectSingleNode($"//users/User[@username='{user.Username}']");
+
+            // Update the quote attribute of the XmlNode
+            userNode.Attributes["quote"].Value = quote;
+
+            // Save the XML document
+            xmlDoc.Save(xmlFilePath);
+
+            return true;
         }
 
     }

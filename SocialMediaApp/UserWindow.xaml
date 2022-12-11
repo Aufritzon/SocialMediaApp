@@ -6,15 +6,17 @@
         xmlns:local="clr-namespace:SocialMediaApp"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800">
+        Height="800" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
@@ -30,18 +32,56 @@
             <TextBlock Text="{Binding FirstName}" />
             <TextBlock Text="!" />
         </StackPanel>
-        
-        <!--Row 2-->
-        <Button Grid.Row="2" Grid.Column="1" Content="Upload Profile Image" 
-                Click="UploadProfilePicture_Click"/>
 
-        <Image x:Name="ProfilePicture" Grid.Row="2" Grid.Column="2" Width="150" MinHeight="150"/>
+        <!--Row 2 Column 2-->
 
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Post" Click="Post_Click" />
-            <TextBox />
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Image x:Name="ProfilePicture" Grid.Row="3" Grid.Column="2" Width="150" MinHeight="150"/>
+
+            <Button Grid.Row="2" Grid.Column="2" Content="Upload Profile Image"
+                Click="UploadProfilePicture_Click" Width="100" Height="100" VerticalAlignment="Top"/>
+
+
+
         </StackPanel>
-        <Button Content="Log Out" Click="LogOutButton_Click"  />
+
+        <StackPanel Grid.Row="2" Grid.Column="3">
+
+            <TextBox x:Name="QuoteTextBox" Width="200" Height="100"/>
+            <Button Content="Change Quote" Click="ChangeQuote_Click" Grid.Column="3" Grid.Row="2" Height="30"
+                VerticalAlignment="Top"/>
+            <TextBlock x:Name="QuoteTextBlock"/>
+        </StackPanel>
+
+
+
+
+
+        <!--Row 2 Collumn 1-->
+
+        <Border Grid.Row="2" Grid.Column="1">
+            <StackPanel>
+                <Button x:Name="HomeButton" Click="HomeButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
+                    <Image Source="Resources\Hem.png" />
+                </Button>
+
+                <Button x:Name="FriendsButton" Click="FriendsButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
+                    <Image Source="Resources\Vänner.png"/>
+                </Button>
+                <Button x:Name="NotificationsButton" Click="NotificationsButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
+                    <Image Source="Resources\Aviseringar.png"/>
+                </Button>
+                <Button x:Name="SettingsButton" Click="SettingsButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
+                    <Image Source="Resources\Inställningar.png"/>
+                </Button>
+                <Button x:Name="LogOutButton" Click="LogOutButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
+                    <Image Source="Resources\LoggaUt.png"/>
+                </Button>
+            </StackPanel>
+        </Border>
+
+
+
     </Grid>
 
 </Window>

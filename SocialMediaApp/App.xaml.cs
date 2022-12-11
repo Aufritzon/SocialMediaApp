@@ -18,7 +18,7 @@ namespace SocialMediaApp
         protected override void OnStartup(StartupEventArgs e)
         {
             // Set the main window of the application
-
+            XmlFileManager.InitXmlFile();
             MainWindow = new LoginWindow();
             MainWindow.Show();
             
