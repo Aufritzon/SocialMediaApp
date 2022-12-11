@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
 using static System.Net.WebRequestMethods;
@@ -93,9 +94,9 @@ namespace SocialMediaApp
             {
                 XmlAttribute emailAttribute = userElement.Attributes["email"];
                 XmlAttribute firstNameAttribute = userElement.Attributes["firstname"];
-                XmlNode lastNameAttrubute = userElement.Attributes["lastname"];
-                XmlNode passwordAttribute = userElement.Attributes["password"];
-                XmlNode usernameAttribute = userElement.Attributes["username"];
+                XmlAttribute lastNameAttrubute = userElement.Attributes["lastname"];
+                XmlAttribute passwordAttribute = userElement.Attributes["password"];
+                XmlAttribute usernameAttribute = userElement.Attributes["username"];
 
 
                 User user = new User
@@ -114,26 +115,28 @@ namespace SocialMediaApp
             return users;
         }
 
-        public static User? GetUser(string username)
+        public static User? GetUser(string username, string password)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlFilePath);
 
-            XmlNode userElement = doc.SelectSingleNode($"users/user[username='{username}']");
+            XmlNode userElement = doc.SelectSingleNode($"//users/User[@username='{username}' and @password='{password}']");
 
             if (userElement != null)
             {
-                XmlNode emailElement = userElement.SelectSingleNode("email");
-                XmlNode firstNameElement = userElement.SelectSingleNode("firstname");
-                XmlNode lastNameElement = userElement.SelectSingleNode("lastname");
-                XmlNode passwordElement = userElement.SelectSingleNode("password");
+                XmlAttribute emailAttribute = userElement.Attributes["email"];
+                XmlAttribute firstNameAttribute = userElement.Attributes["firstname"];
+                XmlAttribute lastNameAttrubute = userElement.Attributes["lastname"];
+                XmlAttribute passwordAttribute = userElement.Attributes["password"];
+                XmlAttribute usernameAttribute = userElement.Attributes["username"];
 
                 User user = new User
                 {
-                    Email = emailElement.InnerText,
-                    FirstName = firstNameElement.InnerText,
-                    LastName = lastNameElement.InnerText,
-                    Password = passwordElement.InnerText
+                    Email = emailAttribute.Value,
+                    FirstName = firstNameAttribute.Value,
+                    LastName = lastNameAttrubute.Value,
+                    Username = usernameAttribute.Value,
+                    Password = passwordAttribute.Value
                 };
 
                 return user;

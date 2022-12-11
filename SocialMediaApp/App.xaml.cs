@@ -19,10 +19,6 @@ namespace SocialMediaApp
         {
             // Set the main window of the application
 
-            XmlFileManager.InitXmlFile();
-            XmlFileManager.AddUser(new User() { Username = "Bragd" });
-            List<User> users = XmlFileManager.GetUsers();
-            users.ForEach(user => MessageBox.Show(user.Username,"hffd0",MessageBoxButton.OK));
             MainWindow = new LoginWindow();
             MainWindow.Show();
             

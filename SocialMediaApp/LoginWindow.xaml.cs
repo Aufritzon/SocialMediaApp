@@ -44,8 +44,7 @@ namespace SocialMediaApp
                 return;
             }
 
-            // Check if user exists and password is correct
-            User? user = XmlFileManager.GetUser(username);
+            User? user = XmlFileManager.GetUser(username, password);
 
             if (user == null)
             {
