@@ -63,38 +63,27 @@ namespace SocialMediaApp
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funktion än!");
         }
 
 
         private void FriendsButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funktion än!");
         }
 
         private void NotificationsButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funktion än!");
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            MessageBox.Show("Knappen " + btn.Content + " har ingen funkrion än!");
+            MessageBox.Show("Knappen " + btn.Content + " har ingen funktion än!");
         }
-
-        private void FeedPost_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-
-
-
-
 
     }
 }
