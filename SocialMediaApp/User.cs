@@ -8,20 +8,32 @@ using System.Xml.Serialization;
 
 namespace SocialMediaApp
 {
-    [Serializable]
+    [XmlRoot]
     public class User
     {
+        [XmlAttribute]
         public string Email { get; set; }
-
+        [XmlAttribute]
         public string FirstName { get; set; }
 
+        [XmlAttribute]
         public string LastName { get; set; }
 
+        [XmlAttribute]
         public string Username { get; set; }
 
+        [XmlAttribute]
         public string Password { get; set; }
 
-        public string ImagePath { get; set; }
+
+        public void Serialize(string filename)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(User));
+            using(TextWriter writer = new StreamWriter(@filename)) 
+            {
+                serializer.Serialize(writer,this);
+            }
+        }
 
     }
 }

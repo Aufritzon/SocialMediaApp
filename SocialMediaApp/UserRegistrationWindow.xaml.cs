@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
+
 namespace SocialMediaApp
 {
     public partial class UserRegistrationWindow : Window
@@ -77,7 +78,7 @@ namespace SocialMediaApp
                 LastName = lastName
             };
 
-            if (!LocalUsersStorage.AddUser(user))
+            if (!XmlFileManager.AddUser(user))
             {
                 MessageBox.Show($"The username {username} is already taken!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

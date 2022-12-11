@@ -20,11 +20,10 @@ namespace SocialMediaApp
     public partial class LoginWindow : Window
     {
         private readonly List<User> users;
-
         public LoginWindow()
         {
-            this.users = LocalUsersStorage.GetUsers();
             InitializeComponent();
+            this.users = XmlFileManager.GetUsers();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -46,7 +45,7 @@ namespace SocialMediaApp
             }
 
             // Check if user exists and password is correct
-            User? user = LocalUsersStorage.GetUser(username, password);
+            User? user = XmlFileManager.GetUser(username);
 
             if (user == null)
             {
