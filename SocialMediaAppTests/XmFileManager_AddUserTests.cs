@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SocialMediaAppTests
 {
-    public class XmFileManagerTests_AddUser
+    public class XmFileManager_AddUserTests
     {
         
-        public User testUser = new User() { Username = "rav"};
+        public User testUser = new User() { Username = "Basset1000"};
 
 
 

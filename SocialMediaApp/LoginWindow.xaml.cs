@@ -19,11 +19,9 @@ namespace SocialMediaApp
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private readonly List<User> users;
         public LoginWindow()
         {
             InitializeComponent();
-            this.users = XmlFileManager.GetUsers();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -32,15 +30,13 @@ namespace SocialMediaApp
             string username = usernameTextBox.Text;
             string password = passwordBox.Password;
 
-            if (string.IsNullOrWhiteSpace(username))
+            if (WindowUtilityMethods.IsEmpty(username, "username"))
             {
-                MessageBox.Show("Please enter a username", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(password))
+            if (WindowUtilityMethods.IsEmpty(password, "password"))
             {
-                MessageBox.Show("Please enter a password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -64,5 +60,6 @@ namespace SocialMediaApp
             registerWindow.Show();
             Close();
         }
+
     }
 }

@@ -38,7 +38,7 @@
         <StackPanel Grid.Row="2" Grid.Column="2">
             <Image x:Name="ProfilePicture" Grid.Row="3" Grid.Column="2" Width="150" MinHeight="150"/>
 
-            <Button Grid.Row="2" Grid.Column="2" Content="Upload Profile Image"
+            <Button Grid.Row="2" Grid.Column="2" Content="Upload Image"
                 Click="UploadProfilePicture_Click" Width="100" Height="100" VerticalAlignment="Top"/>
 
 
@@ -47,7 +47,7 @@
 
         <StackPanel Grid.Row="2" Grid.Column="3">
 
-            <TextBox x:Name="QuoteTextBox" Width="200" Height="100"/>
+            <TextBox x:Name="QuoteTextBox" Width="200" Height="40"/>
             <Button Content="Change Quote" Click="ChangeQuote_Click" Grid.Column="3" Grid.Row="2" Height="30"
                 VerticalAlignment="Top"/>
             <TextBlock x:Name="QuoteTextBlock"/>
@@ -64,7 +64,6 @@
                 <Button x:Name="HomeButton" Click="HomeButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
                     <Image Source="Resources\Hem.png" />
                 </Button>
-
                 <Button x:Name="FriendsButton" Click="FriendsButton_Click" Width="50" Height="50" Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
                     <Image Source="Resources\Vänner.png"/>
                 </Button>
